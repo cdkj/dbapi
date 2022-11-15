@@ -1,0 +1,13 @@
+{
+    "apiName": "test-params",
+    "apiPath": "test-params",
+    "apiNote": "test api for param usage",
+    "groupName": "test-heyAhhhhh",
+    "dataSourceName": "test-heyAhhhhh",
+    "paramList": [
+        {"name": "requestNum", "type": "bigint", "note": "total number of requests"}
+    ],
+    "sqlList": [
+        "select * from monitor where monitor.nums = #{requestNum}"
+    ]
+}

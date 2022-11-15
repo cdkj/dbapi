@@ -1,0 +1,8 @@
+{
+    "dataSourceName": "test-heyAhhhhh",
+    "dataSourceNote": "test DataSource for heyAhhhhh",
+    "dataSourceUrl": "10.77.70.181:3306",
+    "dbName": "new_test",
+    "dbUsername": "root",
+    "dbPassword": "1234qwer"
+}
