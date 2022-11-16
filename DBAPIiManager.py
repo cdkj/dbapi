@@ -24,6 +24,7 @@ class DBAPIManager:
     addApiPath = "/apiConfig/add"
     getAllApiPath = "/apiConfig/getAll"
     onlineApiPath = "/apiConfig/online/apiId"
+    apiDetailPath = "/apiConfig/detail/apiId"
 
 
     def __init__(self):
@@ -147,7 +148,7 @@ class DBAPIManager:
         allDataSourceDesc = self.getAllDataSource()
         for dataSourceDesc in allDataSourceDesc:
             if dataSourceDesc["name"] == dataSourceName:
-                print("Find dataSource: " + str(dataSourceDesc))
+                # print("Find dataSource: " + str(dataSourceDesc))
                 return dataSourceDesc["id"]
         return None
 
@@ -168,7 +169,7 @@ class DBAPIManager:
         allGroupDesc = self.getAllGroup()
         for groupDesc in allGroupDesc:
             if groupDesc["name"] == groupName:
-                print("Find group: " + str(groupDesc))
+                # print("Find group: " + str(groupDesc))
                 return groupDesc["id"]
         return None
 
@@ -226,9 +227,17 @@ class DBAPIManager:
         allApiDesc = self.getAllApi()
         for apiDesc in allApiDesc:
             if apiDesc["name"] == apiName:
-                print("Find api: " + str(apiDesc))
+                # print("Find api: " + str(apiDesc))
                 return apiDesc["id"]
         return None
+
+    def getApiDetail(self, apiName):
+        apiId = self.getApiIdByName(apiName)
+        if apiId == None:
+            return {}
+        r = self.session.get(self.rootPath + self.apiDetailPath.replace("apiId", apiId), headers=self.headers)
+        return json.loads(r.text)
+        
 
     def onlineApi(self, apiName):
         apiId = self.getApiIdByName(apiName)

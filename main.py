@@ -45,4 +45,12 @@ if __name__ == "__main__":
         "hosts": ["peer0.fabric-ruc-com", "peer1.fabric-dbiir-com", "peer2.fabric-deke-com"]
     }
     testArrayParamsUrl = "http://10.77.110.222:8520/api/test-arrayParams"
-    dbapiManager.testApiWithParam(testArrayParamsUrl, testArrayParams)
+    # dbapiManager.testApiWithParam(testArrayParamsUrl, testArrayParams)
+
+    # 使用api名字获取详细信息
+    # print(dbapiManager.getApiDetail("test-params"))
+
+    # 获取所有api详细信息
+    # allApi = dbapiManager.getAllApi()
+    # for api in allApi:
+    #     print(dbapiManager.getApiDetail(api["name"]))
